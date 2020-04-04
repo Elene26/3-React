@@ -22,7 +22,7 @@ class Contact extends Component {
                 email: false
             }
         };
-
+      
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -69,6 +69,25 @@ class Contact extends Component {
             touched: {...this.state.touched, [field]: true}
         });
     }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+    
+        this.setState({
+          [name]: value
+        });
+    }
+
+    handleSubmit(event) {
+        console.log('Current state is: ' + JSON.stringify(this.state));
+        alert('Current state is: ' + JSON.stringify(this.state));
+        event.preventDefault();
+    }
+
+
+
 
     render() {
 
