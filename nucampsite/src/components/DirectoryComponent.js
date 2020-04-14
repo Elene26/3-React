@@ -9,7 +9,7 @@ function RenderDirectoryItem({campsite}) {
     return (
         <Card>
             <Link to={`/directory/${campsite.id}`}>
-            <CardImg src={baseUrl + item.image} alt={item.name} />
+            <CardImg src={baseUrl + campsite.image} alt={campsite.name} />
                 <CardImgOverlay>
                     <CardTitle>{campsite.name}</CardTitle>
                 </CardImgOverlay>
@@ -27,6 +27,7 @@ function Directory(props) {
             </div>
         );
     });
+    
     if (props.campsites.isLoading) {
         return (
             <div className="container">
